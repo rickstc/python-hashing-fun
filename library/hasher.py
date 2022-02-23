@@ -32,7 +32,7 @@ def copy_file(fp, hash, hash_type):
         fname = f"{hash}.{kind.extension}"
     shutil.copyfile(
         fp,
-        os.path.join('sample', hash_type, fname)
+        os.path.join('samples', hash_type, fname)
     )
 
 
@@ -40,18 +40,18 @@ def setup_dirs():
     """
     Setup the Directories
 
-    sample/
+    samples/
         hashme/ # Place the files you want to hash in here
         md5/ # Files from to-hash will be placed here
         sha1/ # Files from to-hash will be placed here
     """
     this_dir = os.path.dirname(__file__)
 
-    hash_dir = os.path.join(this_dir, 'sample', 'hashme')
+    hash_dir = os.path.join(this_dir, 'samples', 'hashme')
 
     os.makedirs(hash_dir, exist_ok=True)
-    os.makedirs(os.path.join(this_dir, 'sample', 'md5'), exist_ok=True)
-    os.makedirs(os.path.join(this_dir, 'sample', 'sha1'), exist_ok=True)
+    os.makedirs(os.path.join(this_dir, 'samples', 'md5'), exist_ok=True)
+    os.makedirs(os.path.join(this_dir, 'samples', 'sha1'), exist_ok=True)
     return hash_dir
 
 
